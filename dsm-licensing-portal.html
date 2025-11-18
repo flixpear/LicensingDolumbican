@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dolumbican Studios Licensing Portal</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, Arial, sans-serif; background-color:#0f0f1f; color:#eaf2ff; margin:0; }
+    header{background:linear-gradient(90deg,#673ab7,#512da8);padding:20px;text-align:center}
+    h1{margin:0;font-size:20px}
+    section{max-width:1000px;margin:20px auto;padding:18px}
+    .card{background:#121226;border-radius:12px;padding:16px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.03)}
+    .catalog-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    button{background:#6b46c1;color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    label{display:block;margin-bottom:6px;color:#aab3c6}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    iframe{width:100%;height:360px;border-radius:8px;border:1px solid rgba(255,255,255,0.04)}
+    .muted{color:#9aa4bf;font-size:13px}
+    pre{background:#0b0b14;padding:12px;border-radius:8px;color:#cbd7ff;overflow:auto}
+    .flex{display:flex;gap:12px}
+    .flex .col{flex:1}
+    a{color:#9ad0ff}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dolumbican Studios Licensing Portal</h1>
+    <p class="muted">Sync Licensing · Film · Ads · Streaming · Podcasts</p>
+  </header>
+
+  <section>
+
+    <!-- FEATURED CATALOG -->
+    <div class="card">
+      <h2>🎵 Featured Catalog</h2>
+
+      <!-- Shop Shop Shop -->
+      <div class="catalog-item">
+        <div>
+          <strong>Shop, Shop, Shop! — Bo Pineapple</strong>
+          <div class="muted">
+            Retro 1950s holiday anthem · Perfect for BET+, Lifetime, major brand campaigns
+          </div>
+        </div>
+        <div style="min-width:220px;display:flex;gap:8px">
+          <button class="select-track-btn"
+            data-track="Shop, Shop, Shop!"
+            data-artist="Bo Pineapple"
+            data-price="299">
+            Select
+          </button>
+          <button class="secondary" onclick="window.open('https://youtu.be/zlZD6qVIVfA?si=x1Z0ZaP0RopqeAs_', '_blank')">
+            Preview
+          </button>
+        </div>
+      </div>
+
+      <!-- KIKKI -->
+      <div class="catalog-item">
+        <div>
+          <strong>E.A.T — Kikki Da Bitch</strong>
+          <div class="muted">The Drunken Fist — Usage: Film / YouTube / Commercial</div>
+        </div>
+        <div style="min-width:220px;display:flex;gap:8px">
+          <button class="select-track-btn" data-track="E.A.T" data-artist="Kikki Da Bitch" data-price="199">Select</button>
+          <button class="secondary" onclick="alert('Preview mock for E.A.T — audio player goes here in production.')">Preview</button>
+        </div>
+      </div>
+
+      <!-- QUEER 1979 -->
+      <div class="catalog-item">
+        <div>
+          <strong>QUEER 1979 Theme — Dolumbican Studios</strong>
+          <div class="muted">Usage: Documentary / Period / Film</div>
+        </div>
+        <div style="min-width:220px;display:flex;gap:8px">
+          <button class="select-track-btn" data-track="QUEER 1979 Theme" data-artist="Dolumbican Studios" data-price="299">Select</button>
+          <button class="secondary" onclick="alert('Preview mock for QUEER 1979 Theme.')">Preview</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LICENSE OPTIONS -->
+    <div class="card">
+      <h2>💰 License Options</h2>
+      <div class="flex">
+        <div class="col"><div class="muted">YouTube / Personal Use</div><strong>$49</strong></div>
+        <div class="col"><div class="muted">Film Festival / Short</div><strong>$199</strong></div>
+        <div class="col"><div class="muted">Full Commercial Rights</div><strong>$499+</strong></div>
+      </div>
+    </div>
+
+    <!-- LICENSE FORM -->
+    <div class="card">
+      <h2>📝 License Request</h2>
+
+      <p class="muted" style="margin-bottom:10px">
+        This form sends your selected track to our licensing team for approval.
+      </p>
+
+      <!-- Google Form (replaces Stripe checkout) -->
+      <iframe 
+        src="https://docs.google.com/forms/d/1dd9qbE6muKetmBrR5hd-14a0cpEO0B3WqOkwo5vyYSE/viewform?embedded=true" 
+        height="800" 
+        frameborder="0"
+        style="border:0;width:100%;border-radius:12px"
+      >
+      </iframe>
+
+    </div>
+
+    <!-- AGREEMENT PREVIEW -->
+    <div class="card">
+      <h2>📄 DSM Licensing Agreement (Preview Only)</h2>
+      <iframe 
+        src="https://drive.google.com/file/d/1_NEqq-5yknXnvTNQqqf1XjLfb0uBJ6pJ/preview"
+        title="DSM Licensing Agreement Preview"
+        allow="autoplay"
+      ></iframe>
+      <p class="muted">*The agreement is automatically attached inside the Google Form.*</p>
+    </div>
+
+  </section>
+
+  <footer style="text-align:center;padding:18px">
+    Dolumbican Studios Music · 
+    <a href="mailto:licensing@dolumbican.com">licensing@dolumbican.com</a> 
+    · © 2025
+  </footer>
+
+  <script>
+    /* Track Selection Logic */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.select-track-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const track = btn.dataset.track;
+          const artist = btn.dataset.artist;
+
+          alert("Selected Track: " + track + " — " + artist + "\n(Selection is now saved when you fill out the Google Form.)");
+
+          // Scroll to form
+          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
